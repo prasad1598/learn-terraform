@@ -3,12 +3,12 @@ provider "azurerm" {
   subscription_id = "aa32da49-0603-4855-b55b-bfd4bcf7b16f"
 }
 
-# resource "azurerm_subnet" "test" {
-#   name                 = "test-SN"
-#   resource_group_name  = "Project_RG"
-#   virtual_network_name = "Project_VN"
-#   address_prefixes     = ["10.0.2.0/24"]
-# }
+resource "azurerm_public_ip" "demo" {
+  name                = "demo-ip"
+  resource_group_name = "Project_RG"
+  location            = "UK West"
+  allocation_method   = "Static"
+}
 
 resource "azurerm_network_interface" "demo" {
   name                = "demo-nic"
@@ -20,13 +20,6 @@ resource "azurerm_network_interface" "demo" {
     subnet_id                     = "/subscriptions/aa32da49-0603-4855-b55b-bfd4bcf7b16f/resourceGroups/Project_RG/providers/Microsoft.Network/virtualNetworks/Project_VN/subnets/default"
     private_ip_address_allocation = "Dynamic"
   }
-}
-
-resource "azurerm_public_ip" "demo" {
-  name                = "demo-ip"
-  resource_group_name = "Project_RG"
-  location            = "UK West"
-  allocation_method   = "Static"
 }
 
 resource "azurerm_virtual_machine" "demo" {
