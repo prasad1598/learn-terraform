@@ -23,6 +23,11 @@ resource "azurerm_network_interface" "frontend" {
   }
 }
 
+resource "azurerm_network_interface_security_group_association" "example" {
+  network_interface_id      = azurerm_network_interface.frontend.id
+  network_security_group_id = "/subscriptions/aa32da49-0603-4855-b55b-bfd4bcf7b16f/resourceGroups/Project_RG/providers/Microsoft.Network/networkSecurityGroups/Project_NSG"
+}
+
 resource "azurerm_virtual_machine" "frontend" {
   name                = "frontend"
   location            = "UK West"
