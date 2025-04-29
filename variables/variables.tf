@@ -7,5 +7,5 @@ variable "c" {
 }
 
 output "c1" {
-  value = var.c[0]
+  value = var.c["x"]
 }
