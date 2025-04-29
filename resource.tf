@@ -30,7 +30,7 @@ resource "azurerm_public_ip" "demo" {
 }
 
 resource "azurerm_virtual_machine" "demo" {
-  name                = "demo-VM"
+  name                = "demo"
   location            = "UK West"
   resource_group_name = "Project_RG"
   network_interface_ids = [azurerm_network_interface.demo.id]
