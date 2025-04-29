@@ -41,25 +41,25 @@ resource "azurerm_virtual_machine" "demo" {
 
   # Uncomment this line to delete the data disks automatically when deleting the VM
   delete_data_disks_on_termination = true
-}
 
-storage_image_reference {
+  storage_image_reference {
     id = "/subscriptions/aa32da49-0603-4855-b55b-bfd4bcf7b16f/resourceGroups/Project_RG/providers/Microsoft.Compute/images/test-devops-practice"
   }
 
-storage_os_disk {
-  name              = "demo-vm-disk"
-  caching           = "ReadWrite"
-  create_option     = "FromImage"
-  managed_disk_type = "Standard_LRS"
-}
+  storage_os_disk {
+    name              = "demo-vm-disk"
+    caching           = "ReadWrite"
+    create_option     = "FromImage"
+    managed_disk_type = "Standard_LRS"
+  }
 
-os_profile {
-  computer_name  = "demo-vm"
-  admin_username = "azuser"
-  admin_password = "Muniprasad@123"
-}
+  os_profile {
+    computer_name  = "demo-vm"
+    admin_username = "azuser"
+    admin_password = "Muniprasad@123"
+  }
 
-os_profile_linux_config {
-  disable_password_authentication = false
+  os_profile_linux_config {
+    disable_password_authentication = false
+  }
 }
