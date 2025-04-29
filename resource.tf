@@ -19,6 +19,7 @@ resource "azurerm_network_interface" "demo" {
     name                          = "demo-nic"
     subnet_id                     = "/subscriptions/aa32da49-0603-4855-b55b-bfd4bcf7b16f/resourceGroups/Project_RG/providers/Microsoft.Network/virtualNetworks/Project_VN/subnets/default"
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.demo.id
   }
 }
 
