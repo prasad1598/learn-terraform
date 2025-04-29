@@ -54,3 +54,11 @@ resource "azurerm_virtual_machine" "frontend" {
     disable_password_authentication = false
   }
 }
+
+resource "azurerm_dns_a_record" "frontend" {
+  name                = "frontend-dev"
+  zone_name           = "prasaddevops.shop"
+  resource_group_name = "Project_RG"
+  ttl                 = 3
+  records             = [azurerm_network_interface.frontend.private_ip_address]
+}
