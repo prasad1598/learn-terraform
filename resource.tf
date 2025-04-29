@@ -26,7 +26,7 @@ resource "azurerm_public_ip" "demo" {
   name                = "demo-ip"
   resource_group_name = "Project_RG"
   location            = "UK West"
-  allocation_method   = "Static"
+  allocation_method   = "Dynamic"
 }
 
 resource "azurerm_virtual_machine" "demo" {
