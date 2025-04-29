@@ -30,17 +30,18 @@ resource "azurerm_public_ip" "demo" {
 }
 
 resource "azurerm_virtual_machine" "demo" {
-  name                  = "demo-VM"
-  location              = "UK West"
-  resource_group_name   = "Project_RG"
+  name                = "demo-VM"
+  location            = "UK West"
+  resource_group_name = "Project_RG"
   network_interface_ids = [azurerm_network_interface.demo.id]
-  vm_size               = "Standard_B1ms"
+  vm_size = "Standard_B1ms"
 
   # Uncomment this line to delete the OS disk automatically when deleting the VM
   delete_os_disk_on_termination = true
 
   # Uncomment this line to delete the data disks automatically when deleting the VM
   delete_data_disks_on_termination = true
+}
 
 storage_image_reference {
     id = "/subscriptions/aa32da49-0603-4855-b55b-bfd4bcf7b16f/resourceGroups/Project_RG/providers/Microsoft.Compute/images/test-devops-practice"
