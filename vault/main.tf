@@ -1,10 +1,10 @@
 provider "vault" {
-  address = "http://vault-int.prasaddevops.shop:8200"
+  address = "http://51.141.85.111:8200"
   token   = var.token
 }
 
 data "vault_generic_secret" "ssh" {
-  path = "roboshop-infra/ssh"
+  path = "ssh/login"
 }
 
 resource "local_file" "ssh" {
