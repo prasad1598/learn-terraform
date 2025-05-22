@@ -8,7 +8,7 @@ provider "vault" {
 }
 
 resource "local_file" "foo" {
-  content  = data.vault_generic_secret.ssh.data
+  content  = data.vault_generic_secret.ssh.data["password"]
   filename = "/tmp/vault"
 }
 
