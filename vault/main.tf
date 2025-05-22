@@ -14,7 +14,7 @@ resource "local_file" "ssh" {
 
 resource "local_file" "foo" {
   content  = jsonencode(data.vault_generic_secret.ssh.data)
-  filename = "/tmp/vault1"
+  filename = "/tmp/vault2"
 }
 
 variable "token" {}
