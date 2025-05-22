@@ -8,13 +8,12 @@ data "vault_generic_secret" "ssh" {
 }
 
 resource "local_file" "ssh" {
-  content  = data.vault_generic_secret.ssh.data["username"]
-  content  = data.vault_generic_secret.ssh.data["password"]
+  content  = data.vault_generic_secret.ssh.data
   filename = "/tmp/vault"
 }
 
 resource "local_file" "foo" {
-  content  = jsonencode(data.vault_generic_secret.ssh.data["password"])
+  content  = jsonencode(data.vault_generic_secret.ssh.data)
   filename = "/tmp/vault1"
 }
 
